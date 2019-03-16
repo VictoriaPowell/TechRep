@@ -1,0 +1,129 @@
+<?php
+include_once '../utils.php';
+include '../connect.php';
+$_SESSION['ref'] = "profile_technician.php"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--
+Template Name: Internet Business
+Author: <a href="http://www.os-templates.com/">OS Templates</a>
+Author URI: http://www.os-templates.com/
+Licence: Free to use under our free template licence terms
+Licence URI: http://www.os-templates.com/template-terms
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>TechRep | Profile</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <link rel="stylesheet" href="../layout/styles/layout.css" type="text/css" />
+    <script type="text/javascript" src="../jsUtils.js"></script>
+    <script type="text/javascript" src="jsUtils.js"></script>
+    <link rel="icon" href="../logo2.ico" type="image/x-icon">
+</head>
+<body id="top">
+<div id="header">
+    <div class="wrapper">
+        <div class="fl_left">
+            <h1><a href="../index_technician.php"><img src="../images/logo.jpg" title="Tech Rep" alt="Tech Rep" width="260" height="80" border="0" /></a>
+            </h1>
+        </div>
+        <div class="fl_right">
+            <?php
+            include '../login.php';
+            if(isset($_SESSION['error']))
+            {
+                $error = $_SESSION['error'];
+                unset($_SESSION['error']);
+                echo "
+			<div class='site_error'>
+			$error
+			</div>
+			";
+
+            }
+            if(isset($_SESSION['alert']))
+            {
+                $alert = $_SESSION['alert'];
+                unset($_SESSION['alert']);
+                echo "
+			<div class='site_alert'>
+			$alert
+			</div>
+			";
+            }
+            if(isset($_SESSION['msg']))
+            {
+                $msg = $_SESSION['msg'];
+                unset($_SESSION['msg']);
+                echo "
+			<div class='site_msg'>
+			$msg
+			</div>
+			";
+            }
+            ?>
+        </div>
+        <br class="clear" />
+    </div>
+</div>
+<!-- ####################################################################################################### -->
+<div id="topbar">
+    <div class="wrapper">
+        <div id="topnav">
+            <ul>
+                <li><a href="../index_technician.php">Home</a></li>
+                <li class="active"><a href="profile_technician.php">Profile</a></li>
+                <li><a href="services_technician.php">Services</a></li>
+                <li><a href="product_main_technician.php">Products</a>
+                    <ul>
+                        <li><a href="product_hardware_technician.php">Hardware</a></li>
+                        <li><a href="product_software_technician.php">Software</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div id="search">
+            <form action="#" method="post">
+                <fieldset>
+                    <legend>Site Search</legend>
+                    <input type="text" value="Search Our Website&hellip;"  onfocus="this.value=(this.value=='Search Our Website&hellip;')? '' : this.value ;" />
+                    <input type="submit" name="go" id="go" value="Search" />
+                </fieldset>
+            </form>
+        </div>
+        <br class="clear" />
+    </div>
+</div>
+<!-- ####################################################################################################### -->
+<div id="breadcrumb">
+    <div class="wrapper">
+        <ul>
+            <li class="first">You Are Here</li>
+            <li>&#187;</li>
+            <li><a href="../index_technician.php">Home</a></li>
+            <li>&#187;</li>
+            <li class="current"><a href="#">Profile</a></li>
+        </ul>
+    </div>
+</div>
+<!-- ####################################################################################################### -->
+<div id="container">
+    <div class="wrapper">
+        <div id="title" style="margin-left: auto;    margin-right: auto;    text-align: center;">
+            <h1 style="margin-bottom: 0px;"><b>Profile</b></h1>
+            <div id='buttons' style="margin-left: 47.5%;">
+                <img src='../images/edit.png' width='50' height='50' border='0' alt='Share' onmouseover='hoveredit(this);' onmouseout='unhoveredit(this);' onclick='ajaxProfileForm();return false;' />
+            </div>
+        </div>
+        <br class="clear" />
+        <?php include "tables/profile.php"; // class='addthis_button_compact'?>
+    </div>
+</div>
+<div id="copyright">
+    <div class="wrapper">
+        <p class="fl_left">Copyright &copy; 2014 - All Rights Reserved - <a href="#">TechRep</a></p>
+        <p class="fl_right">Template by <a target="_blank" href="http://www.os-templates.com/" title="Free Website Templates">OS Templates</a></p>
+        <br class="clear" />
+    </div>
+</div>
+</body>
+</html>
